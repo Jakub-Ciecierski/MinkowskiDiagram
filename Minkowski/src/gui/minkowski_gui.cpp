@@ -36,6 +36,10 @@ void MinkowskiGUI::RenderMinkowskiGUI(){
     ImGui::Begin("Minkowski");
 
     if(ImGui::CollapsingHeader("Minkowski"), 1){
+        if(ImGui::Button("Reset")){
+            simulation_->Reset();
+        }
+
         if(ImGui::TreeNode("Center Observer")){
             float velocity = simulation_->GetVelocity();
             if(ImGui::SliderFloat("velocity * c", &velocity, 0,0.99)){
@@ -62,7 +66,7 @@ void MinkowskiGUI::RenderMinkowskiGUI(){
 
 
         if(ImGui::TreeNode("Random Events")) {
-            static int count = 10;
+            static int count = 100;
             ImGui::InputInt("Count", &count, 1, 100);
 
             static float axis_min = -10;

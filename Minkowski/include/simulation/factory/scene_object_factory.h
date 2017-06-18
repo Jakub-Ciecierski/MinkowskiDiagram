@@ -26,7 +26,8 @@ public:
             const glm::vec3& p2,
             const glm::vec3& color);
 
-    std::shared_ptr<ifx::RenderComponent> CreateCircle(float radius);
+    std::shared_ptr<ifx::RenderComponent> CreateCircle(float radius,
+                                                       const glm::vec3& color);
 private:
 
     std::shared_ptr<ifx::Texture2D> CreateSolidColorTexture(

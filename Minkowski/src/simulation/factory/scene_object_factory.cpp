@@ -44,12 +44,11 @@ std::shared_ptr<ifx::RenderComponent> SceneObjectFactory::CreateLine(
 }
 
 std::shared_ptr<ifx::RenderComponent> SceneObjectFactory::CreateCircle(
-        float radius){
+        float radius, const glm::vec3& color){
     auto model = LoadCircleModel(radius);
 
     auto material = std::shared_ptr<ifx::Material>(new ifx::Material());
 
-    auto color = glm::vec3(0,255,0);
     material->diffuse = CreateSolidColorTexture(
             color, ifx::TextureTypes::DIFFUSE);
     material->specular = CreateSolidColorTexture(

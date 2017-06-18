@@ -24,6 +24,7 @@ struct Event{
     float init_d;
 
     std::shared_ptr<ifx::GameObject> game_object;
+    std::shared_ptr<ifx::GameObject> observer_game_object;
 };
 
 class MinkowskiSimulation : public ifx::PhysicsSimulation {
@@ -56,8 +57,10 @@ public:
      */
     void AddEventRelativeToOtherObserver(Event& event);
 
+    void Reset();
 private:
-    void CalculateObservedEvent(Event& event, bool first);
+
+    void CalculateObservedEvent(Event& event);
     void UpdateTimePosition(Event& event, float time_delta);
 
     float velocity_;
