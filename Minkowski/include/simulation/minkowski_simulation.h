@@ -18,7 +18,6 @@ struct SceneObjects {
 struct Event{
     float ct;
     float d;
-    float v;
 
     float init_ct;
     float init_d;
@@ -60,8 +59,9 @@ public:
     void Reset();
 private:
 
-    void CalculateObservedEvent(Event& event);
+    void CalculateObservedEvent(Event& event, bool first = true);
     void UpdateTimePosition(Event& event, float time_delta);
+    void UpdateWorldLine();
 
     float velocity_;
     float old_velocity_;
